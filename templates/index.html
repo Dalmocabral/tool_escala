@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col-12 d-flex flex-column">
+            <a href="{{ url_for('escala_azul') }}" class="btn btn-primary btn-lg mb-2">Escala Azul</a>
+            <a href="{{ url_for('escala_vermelha') }}" class="btn btn-danger btn-lg mb-2">Escala Vermelha</a>
+            <a href="{{ url_for('escala_moral') }}" class="btn btn-warning btn-lg mb-2">Escala de Moral</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
