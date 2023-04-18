@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request, make_response, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import json
+import os
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico'
+#"sqlite:///project.db"
+#postgres://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico
+
+
 app.config['SECRET_KEY'] = 'minha_chave_secreta'
 
 db = SQLAlchemy(app)
