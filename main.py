@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "flyio/postgres-flex:15.2@sha256:9474b3d2547b25e233c4ec978de784f25bce6b2f2c8c3aeb6de15748578e4b93"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config['SECRET_KEY'] = 'minha_chave_secreta'
 
 db = SQLAlchemy(app)
