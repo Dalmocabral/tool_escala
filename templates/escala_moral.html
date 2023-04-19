@@ -33,7 +33,9 @@
             </table>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <button class="btn btn-success btn-sm" onclick="copyTableToClipboard()">Copiar Escalar</button>
+            <button class="btn btn-success btn-lg" onclick="copyTableToClipboard()" style="margin: 0 15px"><i
+                    class="fa-solid fa-copy"></i></button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg"><i class="fa-solid fa-house"></i></a>
         </div>
     </div>
 </div>
@@ -64,4 +66,4 @@
         alert("Texto copiado para a área de transferência:\n" + text);
     }
 </script>
-{% endblock  %}
+{% endblock %}

@@ -33,13 +33,18 @@
             </table>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <button class="btn btn-success btn-sm" onclick="copyTableToClipboard()">Copiar Escalar</button>
+            <button class="btn btn-success btn-lg" onclick="copyTableToClipboard()" style="margin: 0 15px"><i
+                    class="fa-solid fa-copy"></i></button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg"><i class="fa-solid fa-house"></i></a>
+
         </div>
     </div>
+    <br>
+    <br>
 </div>
 <script>
     function copyTableToClipboard() {
-        var text = "* ESCALA ATUALIZADA - *  " + new Date().toLocaleDateString() + "\n\n";
+        var text = "* ESCALA ATUALIZADA - *  " + new Date().toLocaleDateString() + "\u{1F60A} \n\n";
         var table = document.querySelector("table");
         var rows = table.querySelectorAll("tr");
         for (var i = 1; i < rows.length; i++) {
@@ -64,4 +69,4 @@
         alert("Texto copiado para a área de transferência:\n" + text);
     }
 </script>
-{% endblock  %}
+{% endblock %}
