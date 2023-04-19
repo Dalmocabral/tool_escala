@@ -3,9 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 import os
 from flask_migrate import Migrate
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico'
 #"sqlite:///project.db"
 #postgres://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico
 
@@ -14,6 +16,8 @@ app.config['SECRET_KEY'] = 'minha_chave_secreta'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+admin = Admin(app, name='Admin Panel', template_mode='bootstrap3')
+
 
 from datetime import datetime
 
@@ -113,8 +117,11 @@ def liberar_moral(user_id):
 
 
 
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+        admin.add_view(ModelView(User_Azul, db.session))
+        admin.add_view(ModelView(User_Vermelha, db.session))
+        admin.add_view(ModelView(User_Moral, db.session))
+
     app.run(debug=True)
