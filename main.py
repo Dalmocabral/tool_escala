@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, make_response, redirect, url_
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://escal_ade_servico_user:MVDuEzAI99kgIve9Z7w6HJXlr1X353LI@dpg-cgvhq69euhlhlbngkaq0-a.oregon-postgres.render.com/escal_ade_servico'
@@ -12,6 +13,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://escal_ade_servico_user:MVDuE
 app.config['SECRET_KEY'] = 'minha_chave_secreta'
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 from datetime import datetime
 
