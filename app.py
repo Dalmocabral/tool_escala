@@ -34,7 +34,7 @@ class User_Azul(db.Model):
         return {
             'id': self.id,
             'username': self.username,
-            'data_ultima_dispensa': self.ultima_dispensa.strftime('%d-%m-%Y') if self.ultima_dispensa else None
+            'data_ultima_dispensa': self.ultima_dispensa.strftime('%Y-%m-%d') if self.ultima_dispensa else None
         }
 
 
@@ -47,7 +47,7 @@ class User_Vermelha(db.Model):
         return {
             'id': self.id,
             'username': self.username,
-            'data_ultima_dispensa': self.ultima_dispensa.strftime('%d-%m-%Y') if self.ultima_dispensa else None
+            'data_ultima_dispensa': self.ultima_dispensa.strftime('%Y-%m-%d') if self.ultima_dispensa else None
         }
 
 
@@ -60,7 +60,7 @@ class User_Moral(db.Model):
         return {
             'id': self.id,
             'username': self.username,
-            'data_ultima_dispensa': self.ultima_dispensa.strftime('%d-%m-%Y') if self.ultima_dispensa else None
+            'data_ultima_dispensa': self.ultima_dispensa.strftime('%Y-%m-%d') if self.ultima_dispensa else None
         }
 
 
